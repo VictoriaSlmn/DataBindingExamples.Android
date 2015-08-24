@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="changedText"
+            type="com.example.databinding.app.ChangedText" />
+
+    </data>
+
+    <!--Студия почему то красным подсвечивает, а так работает-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text='@{changedText.text ?? "Empty text"}'
+        android:textColor='@{changedText.color}'
+        android:visibility="@{changedText.isVisible ? View.VISIBLE : View.GONE}"
+        android:textSize="@{changedText.isLarge ? @dimen/large : @dimen/small}"/>
+</layout>
